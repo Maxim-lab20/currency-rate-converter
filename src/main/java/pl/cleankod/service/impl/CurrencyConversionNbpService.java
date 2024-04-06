@@ -1,14 +1,20 @@
-package pl.cleankod.service;
+package pl.cleankod.service.impl;
 
-import pl.cleankod.model.Money;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Service;
 import pl.cleankod.feign.client.ExchangeRatesNbpClient;
+import pl.cleankod.model.Money;
 import pl.cleankod.model.RateWrapper;
+import pl.cleankod.service.CurrencyConversionService;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Currency;
 
+@Service
+@Primary
 public class CurrencyConversionNbpService implements CurrencyConversionService {
+
     private final ExchangeRatesNbpClient exchangeRatesNbpClient;
 
     public CurrencyConversionNbpService(ExchangeRatesNbpClient exchangeRatesNbpClient) {

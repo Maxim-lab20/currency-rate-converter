@@ -1,5 +1,6 @@
 package pl.cleankod.repository.impl;
 
+import org.springframework.stereotype.Repository;
 import pl.cleankod.model.Account;
 import pl.cleankod.model.Money;
 import pl.cleankod.repository.AccountRepository;
@@ -7,6 +8,7 @@ import pl.cleankod.repository.AccountRepository;
 import java.util.Optional;
 import java.util.Set;
 
+@Repository
 public class AccountInMemoryRepository implements AccountRepository {
 
     private final Set<Account> accounts = Set.of(

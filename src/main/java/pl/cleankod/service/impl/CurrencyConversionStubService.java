@@ -1,11 +1,14 @@
-package pl.cleankod.service;
+package pl.cleankod.service.impl;
 
+import org.springframework.stereotype.Service;
 import pl.cleankod.model.Money;
+import pl.cleankod.service.CurrencyConversionService;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Currency;
 
+@Service
 public class CurrencyConversionStubService implements CurrencyConversionService {
     private static final BigDecimal PLN_TO_EUR_RATE = BigDecimal.valueOf(0.22d);
     private static final BigDecimal EUR_TO_PLN_RATE = BigDecimal.valueOf(4.58d);

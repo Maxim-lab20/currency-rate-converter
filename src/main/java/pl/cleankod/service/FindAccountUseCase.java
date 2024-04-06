@@ -1,11 +1,14 @@
 package pl.cleankod.service;
 
+import org.springframework.stereotype.Service;
 import pl.cleankod.model.Account;
 import pl.cleankod.repository.AccountRepository;
 
 import java.util.Optional;
 
+@Service
 public class FindAccountUseCase {
+
     private final AccountRepository accountRepository;
 
     public FindAccountUseCase(AccountRepository accountRepository) {

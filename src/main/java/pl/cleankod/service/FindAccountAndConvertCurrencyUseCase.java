@@ -1,5 +1,7 @@
 package pl.cleankod.service;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 import pl.cleankod.exception.CurrencyConversionException;
 import pl.cleankod.model.Account;
 import pl.cleankod.model.Money;
@@ -8,18 +10,19 @@ import pl.cleankod.repository.AccountRepository;
 import java.util.Currency;
 import java.util.Optional;
 
+@Service
 public class FindAccountAndConvertCurrencyUseCase {
 
     private final AccountRepository accountRepository;
     private final CurrencyConversionService currencyConversionService;
-    private final Currency baseCurrency;
+
+    @Value("${app.base-currency:}")
+    private Currency baseCurrency;
 
     public FindAccountAndConvertCurrencyUseCase(AccountRepository accountRepository,
-                                                CurrencyConversionService currencyConversionService,
-                                                Currency baseCurrency) {
+                                                CurrencyConversionService currencyConversionService) {
         this.accountRepository = accountRepository;
         this.currencyConversionService = currencyConversionService;
-        this.baseCurrency = baseCurrency;
     }
 
     public Optional<Account> execute(Account.Id id, Currency targetCurrency) {
