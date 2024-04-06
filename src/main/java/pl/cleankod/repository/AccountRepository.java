@@ -1,6 +1,6 @@
-package pl.cleankod.exchange.core.gateway;
+package pl.cleankod.repository;
 
-import pl.cleankod.exchange.core.domain.Account;
+import pl.cleankod.model.Account;
 
 import java.util.Optional;
 

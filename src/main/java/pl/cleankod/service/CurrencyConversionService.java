@@ -1,6 +1,6 @@
-package pl.cleankod.exchange.core.gateway;
+package pl.cleankod.service;
 
-import pl.cleankod.exchange.core.domain.Money;
+import pl.cleankod.model.Money;
 
 import java.util.Currency;
 

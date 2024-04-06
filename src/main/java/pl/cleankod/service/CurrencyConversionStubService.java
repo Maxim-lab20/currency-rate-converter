@@ -1,7 +1,6 @@
-package pl.cleankod.exchange.provider;
+package pl.cleankod.service;
 
-import pl.cleankod.exchange.core.domain.Money;
-import pl.cleankod.exchange.core.gateway.CurrencyConversionService;
+import pl.cleankod.model.Money;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

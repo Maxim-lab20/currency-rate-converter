@@ -1,4 +1,4 @@
-package pl.cleankod.exchange.core.domain;
+package pl.cleankod.model;
 
 import pl.cleankod.util.Preconditions;
 

@@ -1,9 +1,8 @@
-package pl.cleankod.exchange.provider;
+package pl.cleankod.service;
 
-import pl.cleankod.exchange.core.domain.Money;
-import pl.cleankod.exchange.core.gateway.CurrencyConversionService;
-import pl.cleankod.exchange.provider.nbp.ExchangeRatesNbpClient;
-import pl.cleankod.exchange.provider.nbp.model.RateWrapper;
+import pl.cleankod.model.Money;
+import pl.cleankod.feign.client.ExchangeRatesNbpClient;
+import pl.cleankod.model.RateWrapper;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

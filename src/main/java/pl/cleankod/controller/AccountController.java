@@ -1,10 +1,10 @@
-package pl.cleankod.exchange.entrypoint;
+package pl.cleankod.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.cleankod.exchange.core.domain.Account;
-import pl.cleankod.exchange.core.usecase.FindAccountAndConvertCurrencyUseCase;
-import pl.cleankod.exchange.core.usecase.FindAccountUseCase;
+import pl.cleankod.model.Account;
+import pl.cleankod.service.FindAccountAndConvertCurrencyUseCase;
+import pl.cleankod.service.FindAccountUseCase;
 
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;

@@ -1,4 +1,4 @@
-package pl.cleankod.exchange.core.usecase;
+package pl.cleankod.exception;
 
 import java.util.Currency;
 

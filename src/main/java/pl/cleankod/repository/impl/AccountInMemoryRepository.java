@@ -1,8 +1,8 @@
-package pl.cleankod.exchange.provider;
+package pl.cleankod.repository.impl;
 
-import pl.cleankod.exchange.core.domain.Account;
-import pl.cleankod.exchange.core.domain.Money;
-import pl.cleankod.exchange.core.gateway.AccountRepository;
+import pl.cleankod.model.Account;
+import pl.cleankod.model.Money;
+import pl.cleankod.repository.AccountRepository;
 
 import java.util.Optional;
 import java.util.Set;

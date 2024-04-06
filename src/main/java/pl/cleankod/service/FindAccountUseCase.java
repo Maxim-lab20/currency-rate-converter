@@ -1,7 +1,7 @@
-package pl.cleankod.exchange.core.usecase;
+package pl.cleankod.service;
 
-import pl.cleankod.exchange.core.domain.Account;
-import pl.cleankod.exchange.core.gateway.AccountRepository;
+import pl.cleankod.model.Account;
+import pl.cleankod.repository.AccountRepository;
 
 import java.util.Optional;
 

@@ -1,6 +1,6 @@
-package pl.cleankod.exchange.core.domain;
+package pl.cleankod.model;
 
-import pl.cleankod.exchange.core.gateway.CurrencyConversionService;
+import pl.cleankod.service.CurrencyConversionService;
 import pl.cleankod.util.Preconditions;
 
 import java.math.BigDecimal;

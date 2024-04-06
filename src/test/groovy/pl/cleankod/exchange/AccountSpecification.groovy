@@ -5,8 +5,8 @@ import com.github.tomakehurst.wiremock.client.WireMock
 import com.github.tomakehurst.wiremock.core.WireMockConfiguration
 import org.apache.http.HttpResponse
 import pl.cleankod.BaseApplicationSpecification
-import pl.cleankod.exchange.core.domain.Account
-import pl.cleankod.exchange.core.domain.Money
+import pl.cleankod.model.Account
+import pl.cleankod.model.Money
 
 import java.nio.charset.StandardCharsets
 

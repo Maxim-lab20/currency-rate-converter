@@ -1,10 +1,8 @@
-package pl.cleankod.exchange.entrypoint;
+package pl.cleankod.exception;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import pl.cleankod.exchange.core.usecase.CurrencyConversionException;
-import pl.cleankod.exchange.entrypoint.model.ApiError;
 
 @ControllerAdvice
 public class ExceptionHandlerAdvice {
