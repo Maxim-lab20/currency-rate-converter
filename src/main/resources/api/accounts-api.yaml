@@ -1,0 +1,98 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Swagger Accounts
+  license:
+    name: MIT
+paths:
+  /accounts/{id}:
+    get:
+      summary: Find account by id
+      operationId: findAccountById
+      tags:
+        - account
+      parameters:
+        - $ref: '#/components/parameters/IdParam'
+        - $ref: '#/components/parameters/CurrencyParam'
+      responses:
+        '200':
+          description: Account found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccountDto"
+        '404':
+          description: Account not found
+  /accounts/number={number}:
+    get:
+      summary: Find account by number
+      operationId: findAccountByNumber
+      tags:
+        - account
+      parameters:
+        - $ref: '#/components/parameters/NumberParam'
+        - $ref: '#/components/parameters/CurrencyParam'
+      responses:
+        '200':
+          description: Account found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccountDto"
+        '404':
+          description: Account not found
+components:
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      description: Id
+      required: true
+      schema:
+        type: string
+    NumberParam:
+      name: number
+      in: path
+      description: Number param
+      required: true
+      schema:
+        type: string
+        example: "65+1090+1665+0000+0001+0373+7343"
+    CurrencyParam:
+      name: currency
+      in: query
+      description: Currency
+      required: false
+      schema:
+        type: string
+  schemas:
+    AccountDto:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/Id'
+        number:
+          $ref: '#/components/schemas/Number'
+        balance:
+          $ref: '#/components/schemas/Money'
+    Id:
+      type: object
+      properties:
+        value:
+          type: string
+          format: uuid
+    Number:
+      type: object
+      properties:
+        value:
+          type: string
+          example: "1234567890123456"
+    Money:
+      type: object
+      properties:
+        amount:
+          type: string
+          format: decimal
+        currency:
+          type: string
+          description: ISO 4217 currency code (e.g., USD, EUR)

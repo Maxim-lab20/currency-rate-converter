@@ -74,7 +74,7 @@ Also, value-objects are responsible for a little more than just plain data holdi
 * Better logging with traceability.
 * Replace exceptions with `Result` (`either`) which improves the overall methods API readability and forces error handling. Look into [cleankod/architecture-archetype](https://github.com/cleankod/architecture-archetype) as a starting point.
 * Test coverage report.
-* Auto generating REST API docs.
+* X - Auto generating REST API docs.
 * Integration tests with the real NBP API.
 * Replace Spring Framework with a different one.
 * The proposed architecture is not perfect. Suggest improvements.

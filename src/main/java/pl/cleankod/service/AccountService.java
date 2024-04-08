@@ -1,12 +1,12 @@
 package pl.cleankod.service;
 
-import pl.cleankod.model.Account;
+import com.example.accounts.api.model.AccountDto;
 
 import java.util.Optional;
 
 public interface AccountService {
 
-    Optional<Account> findAccountById(String id, String currency);
+    Optional<AccountDto> findAccountById(String id, String currency);
 
-    Optional<Account> findAccountByNumber(String number, String currency);
+    Optional<AccountDto> findAccountByNumber(String number, String currency);
 }

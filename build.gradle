@@ -1,6 +1,9 @@
 plugins {
     id 'java'
-
+    id 'org.springframework.boot' version '3.2.2'
+    id 'io.spring.dependency-management' version '1.1.4'
+    id "io.freefair.lombok" version "8.4"
+    id 'org.hidetake.swagger.generator' version '2.19.2'
     // Apply the groovy plugin to also add support for Groovy (needed for Spock)
     id 'groovy'
 }
@@ -8,6 +11,30 @@ plugins {
 repositories {
     mavenCentral()
 }
+
+processResources {
+    dependsOn(generateSwaggerCode)
+}
+
+
+swaggerSources {
+    accounts {
+        inputFile = file("${rootDir}/src/main/resources/api/accounts-api.yaml")
+        code {
+            language = 'spring'
+
+            configFile = file("${rootDir}/src/main/resources/api/config.json")
+            //what to generate. Optional.
+            components = [models: true, apis: true, supportingFiles: 'ApiUtil.java']
+            dependsOn validation //first validate the yaml
+        }
+    }
+}
+
+//Set generated code to sourceSet to be able to used it in the implementation
+compileJava.dependsOn swaggerSources.accounts.code
+sourceSets.main.java.srcDir "${swaggerSources.accounts.code.outputDir}/src/main/java"
+sourceSets.main.resources.srcDir "${swaggerSources.accounts.code.outputDir}/src/main/resources"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -21,6 +48,16 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.1'
     implementation 'io.github.openfeign:feign-httpclient:11.8'
     implementation 'io.github.openfeign:feign-jackson:11.8'
+
+    //we also set heteoas to true in config.json
+    implementation 'org.springframework.boot:spring-boot-starter-hateoas'
+
+    //open api code generation
+    swaggerCodegen 'org.openapitools:openapi-generator-cli:7.3.0'
+    implementation 'io.swagger.core.v3:swagger-annotations:2.2.20'
+
+    //open api ui
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
 
     // Use the latest Groovy version for Spock testing
     testImplementation 'org.codehaus.groovy:groovy:3.0.9'
