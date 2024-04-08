@@ -67,9 +67,9 @@ Also, value-objects are responsible for a little more than just plain data holdi
 # To do
 * Rounding when calculating the amount is not done correctly for this type of operation (we're loosing money!) and it is done in the wrong place.
 * Investigate whether it is possible to implement the value-object serialization, to avoid `value` nested field in JSON. See [#10](https://github.com/cleankod/currency-rate-converter/pull/10) as a starting point. Or maybe there is a better solution to the problem at hand?
-* Move parameter-specific logic outside the controller.
+* X - Move parameter-specific logic outside the controller.
 * Better error handling, especially of potential errors from NBP API.
-* Caching the NBP API results.
+* X - Caching the NBP API results.
 * Circuit-breaker for the NBP API client.
 * Better logging with traceability.
 * Replace exceptions with `Result` (`either`) which improves the overall methods API readability and forces error handling. Look into [cleankod/architecture-archetype](https://github.com/cleankod/architecture-archetype) as a starting point.
