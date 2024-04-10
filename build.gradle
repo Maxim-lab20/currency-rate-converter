@@ -48,6 +48,7 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.1'
     implementation 'io.github.openfeign:feign-httpclient:11.8'
     implementation 'io.github.openfeign:feign-jackson:11.8'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
 
     //we also set heteoas to true in config.json
     implementation 'org.springframework.boot:spring-boot-starter-hateoas'

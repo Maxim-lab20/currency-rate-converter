@@ -1,4 +1,4 @@
-package pl.cleankod.service;
+package pl.cleankod.service.impl;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -6,6 +6,7 @@ import pl.cleankod.exception.CurrencyConversionException;
 import pl.cleankod.model.Account;
 import pl.cleankod.model.Money;
 import pl.cleankod.repository.AccountRepository;
+import pl.cleankod.service.CurrencyConversionService;
 
 import java.util.Currency;
 import java.util.Optional;

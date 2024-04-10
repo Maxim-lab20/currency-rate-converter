@@ -4,11 +4,10 @@ import com.example.accounts.api.model.AccountDto;
 import com.example.accounts.api.model.Id;
 import com.example.accounts.api.model.Money;
 import com.example.accounts.api.model.Number;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import pl.cleankod.model.Account;
 import pl.cleankod.service.AccountService;
-import pl.cleankod.service.FindAccountAndConvertCurrencyUseCase;
-import pl.cleankod.service.FindAccountUseCase;
 
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
@@ -16,6 +15,7 @@ import java.util.Currency;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class AccountServiceImpl implements AccountService {
 
     private final FindAccountAndConvertCurrencyUseCase findAccountAndConvertCurrencyUseCase;
@@ -28,6 +28,8 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Optional<AccountDto> findAccountById(String id, String currency) {
+        log.info("inside findAccountById method");
+
         Optional<Account> accountOptional = Optional.ofNullable(currency)
                 .map(s -> findAccountAndConvertCurrencyUseCase.execute(Account.Id.of(id), Currency.getInstance(s)))
                 .orElseGet(() -> findAccountUseCase.execute(Account.Id.of(id)));
@@ -37,6 +39,8 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Optional<AccountDto> findAccountByNumber(String number, String currency) {
+        log.info("inside find findAccountByNumber method");
+
         Account.Number accountNumber = Account.Number.of(URLDecoder.decode(number, StandardCharsets.UTF_8));
         Optional<Account> accountOptional = Optional.ofNullable(currency)
                 .map(s -> findAccountAndConvertCurrencyUseCase.execute(accountNumber, Currency.getInstance(s)))

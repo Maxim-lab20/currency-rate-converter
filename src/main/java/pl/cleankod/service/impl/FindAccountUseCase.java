@@ -1,4 +1,4 @@
-package pl.cleankod.service;
+package pl.cleankod.service.impl;
 
 import org.springframework.stereotype.Service;
 import pl.cleankod.model.Account;
